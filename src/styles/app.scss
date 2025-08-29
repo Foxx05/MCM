@@ -178,12 +178,31 @@ button{
     font-size: clamp(0.75rem, 0.6528rem + 0.4444vw, 1rem);
 }
 
+.degrade{
+    height: 245px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #202020;
+    background: linear-gradient(to bottom, #620000 0%, #202020 100%);
+    z-index: -10;
+}
+
+.title--big{
+    grid-column: 1/4;
+    z-index: 10;
+    color: #fafafa;
+    margin-top: 80px;
+}
+
 .gridcol{
     display: grid;
-    grid-template-columns: 5;
+    grid-template-columns: repeat(5, 1fr);
     gap: 16px;
-
+    padding: 0 16px;
 }
+
 @media (min-width: 768px){
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // portfolio
 
