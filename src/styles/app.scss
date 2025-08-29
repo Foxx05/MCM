@@ -30,6 +30,10 @@ p{
     font-weight: 600;
 }
 
+section{
+    color: #fafafa;
+}
+
 a{
     color: #fafafa;
     font-weight: 700;
@@ -165,16 +169,6 @@ button{
     text-decoration: underline;
 }
 
-.p--copy{
-    color: #fafafa;
-    margin: 20px;
-    margin-right: 0;
-    grid-column: 1/-1;
-    background-color: transparent;
-    padding: 0;
-    font-size: clamp(0.75rem, 0.6528rem + 0.4444vw, 1rem);
-}
-
 .degrade{
     height: clamp(15.3125rem, 7.7778rem + 34.4444vw, 34.6875rem);
     position: absolute;
@@ -211,6 +205,50 @@ button{
   width: clamp(160px, 40vw, 520px);
   background: linear-gradient(90deg, #620000, #202020);
   border-radius: 999px;
+}
+
+.title--col1{
+    grid-column: 1/-1;
+}
+
+.title--col2, .p--col2__tel{
+    grid-column: 2/-1;
+}
+
+.p--col1__tel{
+    grid-column: 1/-2;
+}
+
+.div--btnAcceuil{
+    display: flex;
+    flex-direction: column;
+    grid-column: 1/-2;
+    gap: 16px;
+}
+
+.btnAcceuil{
+  display: inline-flex;             /* permet de centrer le contenu */
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border: 2px solid #fafafa;        /* épaisseur du bord */
+  border-radius: 25px;
+  background-color: #620000;
+  color: #fafafa;
+  font-size: clamp(1.125rem, 0.127vw + 1.097rem, 1.25rem);
+  text-decoration: none;            /* pas de soulignement */
+  line-height: 1;                   /* évite le décalage vertical */
+  min-width: 180px;                 /* optionnel : largeur mini uniforme */
+}
+
+.p--copy{
+    color: #fafafa;
+    margin: 20px;
+    margin-right: 0;
+    grid-column: 1/-1;
+    background-color: transparent;
+    padding: 0;
+    font-size: clamp(0.75rem, 0.6528rem + 0.4444vw, 1rem);
 }
 
 .gridcol{
