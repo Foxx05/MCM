@@ -207,7 +207,7 @@ button{
   border-radius: 999px;
 }
 
-.title--col1{
+.title--col1, .title--col1{
     grid-column: 1/-1;
 }
 
@@ -227,34 +227,60 @@ button{
 }
 
 .btnAcceuil{
-  display: inline-flex;             /* permet de centrer le contenu */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 10px 18px;
-  border: 2px solid #fafafa;        /* épaisseur du bord */
+  border: 1px solid #fafafa;
   border-radius: 25px;
   background-color: #620000;
   color: #fafafa;
   font-size: clamp(1.125rem, 0.127vw + 1.097rem, 1.25rem);
-  text-decoration: none;            /* pas de soulignement */
-  line-height: 1;                   /* évite le décalage vertical */
-  min-width: 180px;                 /* optionnel : largeur mini uniforme */
+  text-decoration: none;
+  line-height: 1;
+}
+
+.btnAcceuil:hover{
+    color: #620000;
+    border-color: #620000;
+    background-color: #fafafa;
+}
+
+/* FOOTER */
+.gridfoot{
+  /* si tu n'ajoutes pas "gridcol", dé-commente la grille ci-dessous */
+  display: grid;                          /* ← active la grille */
+  grid-template-columns: repeat(5, 1fr);  /* 5 colonnes */
+  gap: 16px;
+  padding: 32px 16px 24px;
+  background: #202020;
+  color: #fafafa;
+}
+
+
+
+#contact p{
+  margin: 0 0 12px;
+  line-height: 1.5;
+}
+
+.foot--contact,
+.foot--location{
+  grid-column: 1/-1;
 }
 
 .p--copy{
-    color: #fafafa;
-    margin: 20px;
-    margin-right: 0;
-    grid-column: 1/-1;
-    background-color: transparent;
-    padding: 0;
-    font-size: clamp(0.75rem, 0.6528rem + 0.4444vw, 1rem);
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #dcdcdc;
+  margin: 24px 0 0;
+  font-size: clamp(0.8rem, 0.2vw + 0.75rem, 0.95rem);
 }
 
 .gridcol{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 16px;
+    column-gap: 16px;
     padding: 0 16px;
 }
 
@@ -264,9 +290,18 @@ button{
     body{
         font-size: 20px;
     }
+
     .menu__btn{
         height: 50px;
         width: 50px;
+    }
+
+    .foot--contact{
+        grid-column: 1 / 3;
+    }
+
+    .foot--location{
+        grid-column: 3 / 6;
     }
 
 }
