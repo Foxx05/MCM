@@ -58,80 +58,16 @@ const fileName = window.location.pathname.split("/").pop();
 let lastScrollTop = 0;
 
 //Etat Actif
-(() => {
-  const spyLinks = document.querySelectorAll('.menu__liste a');
-  const spyTargets = [
-    ...document.querySelectorAll('section[id]'),
-    document.getElementById('contact')
-  ].filter(Boolean);
+// Active link en fonction de la page en cours
+document.addEventListener("DOMContentLoaded", () => {
+  const currentPage = window.location.pathname.split("/").pop(); 
+  // ex: "modeles.html"
 
-  if (!spyLinks.length || !spyTargets.length) return;
+  document.querySelectorAll(".menu__liste a").forEach(link => {
+    const href = link.getAttribute("href");
 
-  const linksFor = (id) =>
-    document.querySelectorAll(`.menu__liste a[href="#${id}"], .nav-vertical a[href="#${id}"]`);
-
-  const setActive = (id) => {
-    spyLinks.forEach((a) => a.classList.remove('active'));
-    linksFor(id).forEach((a) => a.classList.add('active'));
-  };
-
-  spyLinks.forEach((a) => {
-    a.addEventListener('click', () => {
-      const href = a.getAttribute('href') || '';
-      if (href.startsWith('#')) setActive(href.slice(1));
-    });
-  });
-
-  const visibleMap = new Map(spyTargets.map((el) => [el.id, 0]));
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        visibleMap.set(entry.target.id, entry.isIntersecting ? entry.intersectionRatio : 0);
-      });
-
-      let bestId = null;
-      let bestRatio = 0;
-      visibleMap.forEach((ratio, id) => {
-        if (ratio > bestRatio) {
-          bestRatio = ratio;
-          bestId = id;
-        }
-      });
-
-      if (bestId) setActive(bestId);
-    },
-    {
-      rootMargin: '-80px 0px -20% 0px',
-      threshold: [0, 0.1, 0.25, 0.5, 0.75, 1]
-    }
-  );
-
-  spyTargets.forEach((el) => io.observe(el));
-
-  //Page Acceuil
-  const enforceFooterActiveAtBottom = () => {
-    const doc = document.documentElement;
-    const nearBottom = window.innerHeight + window.scrollY >= doc.scrollHeight - 2;
-    if (nearBottom && document.getElementById('contact')) {
-      setActive('contact');
-    }
-  };
-  window.addEventListener('scroll', enforceFooterActiveAtBottom);
-
-  window.addEventListener('load', () => {
-    if (location.hash) {
-      const id = location.hash.slice(1);
-      if (document.getElementById(id)) setActive(id);
+    if (href === currentPage || (href === "index.html" && currentPage === "")) {
+      link.classList.add("active");
     }
   });
-
-  window.addEventListener('hashchange', () => {
-    const id = location.hash.slice(1);
-    if (id && document.getElementById(id)) setActive(id);
-  });
-})();
-
-window.addEventListener('load', () => {
-  ScrollTrigger.refresh();
 });
