@@ -1,9 +1,6 @@
 @import 'utils/variables';
 @import 'components/type';
 
-
-// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // portfolio
-
 *{
     box-sizing: border-box;
 }
@@ -179,7 +176,7 @@ button{
 }
 
 .degrade{
-    height: 245px;
+    height: clamp(15.3125rem, 7.7778rem + 34.4444vw, 34.6875rem);
     position: absolute;
     top: 0;
     left: 0;
@@ -190,17 +187,30 @@ button{
 }
 
 .title--big{
-    grid-column: 1/4;
-    z-index: 10;
-    color: #fafafa;
-    margin-top: 80px;
-    font-weight: 500;
+  position: relative;      /* <-- indispensable */
+  display: inline-block;   /* pour que la barre suive la largeur du titre */
+  grid-column: 1/4;
+  margin-top: 80px;
+  font-size: clamp(2.5rem, 1.4306rem + 4.8889vw, 5.25rem);
+  font-weight: 500;
+  color: #fafafa;
+  z-index: 1;              /* au-dessus du fond */
 }
 
 .img--head{
     grid-column: 4/-1;
     margin-top: 95px;
+}
 
+.title--big::after{
+  content: "";
+  position: absolute;
+  left: 0;                             /* démarre au début du titre */
+  top: calc(100% + 12px);              /* sous le titre (plus fiable que bottom) */
+  height: 6px;
+  width: clamp(160px, 40vw, 520px);
+  background: linear-gradient(90deg, #620000, #202020);
+  border-radius: 999px;
 }
 
 .gridcol{
