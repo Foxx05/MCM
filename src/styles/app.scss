@@ -21,6 +21,17 @@ body{
     overflow-x: hidden;
 }
 
+h2{
+    font-size: clamp(2rem, 1.9028rem + 0.4444vw, 2.25rem);
+    font-weight: 500;
+}
+
+h3{
+    font-size: clamp(1.5rem, 1.4271rem + 0.3333vw, 1.6875rem);
+    font-weight: 500;
+    grid-column: 2/-1;
+}
+
 p{
     font-size: clamp(1.125rem, 0.127vw + 1.097rem, 1.25rem);
     margin-bottom: clamp(1.4375rem, 0.9757rem + 2.1111vw, 2.625rem);
@@ -165,11 +176,22 @@ img{
     border-radius: 25px;
 }
 
-.shortline__right, .longline__left, .line__full{
+.shortline__right, .longline__left, .line__full, .line__center{
   height: 10px;
   background: #620000;
   border-radius: 8px;
 }
+
+.line__center{
+  width: clamp(160px, 40vw, 520px);
+  margin-inline: auto;
+
+  transform: scaleX(0.0001);
+  transform-origin: center center;
+  will-change: transform, opacity;
+  opacity: 0;
+}
+
 
 .shortline__right,
 .longline__left{
@@ -254,6 +276,9 @@ img{
     grid-column: 1/-1;
 }
 
+.p--col2col2{
+    grid-column: 2/-2;
+}
 .title--drone{
     color: #FD0800;
 }
@@ -333,6 +358,12 @@ img{
   color: #dcdcdc;
   margin: 24px 0 0;
   font-size: clamp(0.8rem, 0.2vw + 0.75rem, 0.95rem);
+}
+
+.img--presi, .img--treso, .img--secr{
+    grid-column: 2/-2;
+    width: 100%;
+    border-radius: 100px;
 }
 
 .gridfoot{

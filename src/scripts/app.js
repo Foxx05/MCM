@@ -71,18 +71,24 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Barres
-document.querySelectorAll('.shortline__right, .longline__left').forEach(el => {
-  const origin = el.classList.contains('shortline__right') ? 'right center' : 'left center';
-  gsap.set(el, { scaleX: 0, transformOrigin: origin });
+
+document.querySelectorAll('.shortline__right, .longline__left, .line__center').forEach(el => {
+  let origin = 'center center';
+  if (el.classList.contains('shortline__right')) origin = 'right center';
+  if (el.classList.contains('longline__left'))   origin = 'left center';
+
+  gsap.set(el, { transformOrigin: origin });
 
   gsap.to(el, {
-    scaleX: 1,
+    scaleX: 1,               // grandit de 0 -> 1 entre start et end
     ease: "none",
     scrollTrigger: {
       trigger: el,
-      start: "top 85%",
-      end:   "top 40%",
-      scrub: true
+      start: "top 85%",      // commence à grandir en approchant
+      end:   "top 40%",      // plein à ~40% du viewport
+      scrub: true,
+      onEnter:     () => gsap.set(el, { opacity: 1 }),
+      onLeaveBack: () => gsap.set(el, { opacity: 0 })
     }
   });
 });
