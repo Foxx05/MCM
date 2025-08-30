@@ -256,8 +256,9 @@ img{
 
 .img--head{
     grid-column: 4/-1;
-    margin-top: 95px;
+    margin-top: 100px;
     filter: grayscale(0%);
+    width: 100%;
 }
 
 .title--big::after{
@@ -393,6 +394,12 @@ img{
         width: 50px;
     }
 
+    .img--head{
+        position: absolute;
+        width: 40%;
+        margin-left: 400px;
+    }
+
     .foot--contact{
         grid-column: 1 / 3;
     }
@@ -435,7 +442,7 @@ img{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        background-color: rgba(0,0,0, 0.4);
+        background-color: #202020;
         position: fixed;
     }
 
@@ -470,5 +477,70 @@ img{
         margin: 0 auto;
         margin-bottom: 80px;
     }
+
+    .title--big{
+        grid-column: 1/-1;
+        margin-top: 150px;
+    }
+    .img--head{
+        margin-left: 850px;
+        margin-top: 150px;
+        width: 20%;
+    }
+    .p--col1col4{
+        grid-column: 1/5;
+    }
+
+    .longline__left{
+        width: 560px;
+    }
+
+    .shortline__right{
+        width: 320px;
+        justify-self: end;
+    }
+    .p--col4colf{
+        grid-column: 4/-1;
+    }
+    .img--terrain1{
+        grid-column: 5/-1;
+        grid-row: 2/6;
+    }
+
+    .img--terrain2{
+        grid-column: 1/4;
+        grid-row: 2/6;
+    }
+
+    .title--bonus{
+        grid-column: 2/-1;
+    }
+
+    .p--col2col5{
+        grid-column: 2/6;
+    }
+
+    .div--btnAcceuil{
+        grid-column: 2/5;
+    }
+
+    .foot--location{
+        grid-column: 3/-1;
+    }
+    .gridfoot{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        column-gap: 60px;
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+    .gridcol{
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        column-gap: 60px;
+        padding-left: 120px;
+        padding-right: 120px;
+    }
+
 
 }
