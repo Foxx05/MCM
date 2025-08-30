@@ -183,6 +183,7 @@ img{
 .line__full{
   transform: none;
   will-change: auto;
+  border-radius: 0;
 }
 
 .longline__left  { transform-origin: left  center; }

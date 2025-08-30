@@ -58,10 +58,8 @@ const fileName = window.location.pathname.split("/").pop();
 let lastScrollTop = 0;
 
 //Etat Actif
-// Active link en fonction de la page en cours
 document.addEventListener("DOMContentLoaded", () => {
   const currentPage = window.location.pathname.split("/").pop(); 
-  // ex: "modeles.html"
 
   document.querySelectorAll(".menu__liste a").forEach(link => {
     const href = link.getAttribute("href");
@@ -77,23 +75,14 @@ document.querySelectorAll('.shortline__right, .longline__left').forEach(el => {
   const origin = el.classList.contains('shortline__right') ? 'right center' : 'left center';
   gsap.set(el, { scaleX: 0, transformOrigin: origin });
 
-  const tl = gsap.timeline({
-    defaults: { ease: "none" },
+  gsap.to(el, {
+    scaleX: 1,
+    ease: "none",
     scrollTrigger: {
       trigger: el,
       start: "top 85%",
-      end:   "bottom 15%",
+      end:   "top 40%",
       scrub: true
     }
   });
-
-  tl.to(el, { scaleX: 1, duration: 0.25 })
-    .to(el, { scaleX: 1, duration: 0.50 })
-    .to(el, { scaleX: 0, duration: 0.25 });
 });
-
-// (optionnel) si tu avais déjà créé des triggers sur .line__full, nettoie :
-ScrollTrigger.getAll()
-  .filter(t => t.trigger && t.trigger.matches('.line__full'))
-  .forEach(t => t.kill());
-ScrollTrigger.refresh();
