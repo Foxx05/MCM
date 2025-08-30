@@ -71,3 +71,29 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Barres
+document.querySelectorAll('.shortline__right, .longline__left').forEach(el => {
+  const origin = el.classList.contains('shortline__right') ? 'right center' : 'left center';
+  gsap.set(el, { scaleX: 0, transformOrigin: origin });
+
+  const tl = gsap.timeline({
+    defaults: { ease: "none" },
+    scrollTrigger: {
+      trigger: el,
+      start: "top 85%",
+      end:   "bottom 15%",
+      scrub: true
+    }
+  });
+
+  tl.to(el, { scaleX: 1, duration: 0.25 })
+    .to(el, { scaleX: 1, duration: 0.50 })
+    .to(el, { scaleX: 0, duration: 0.25 });
+});
+
+// (optionnel) si tu avais déjà créé des triggers sur .line__full, nettoie :
+ScrollTrigger.getAll()
+  .filter(t => t.trigger && t.trigger.matches('.line__full'))
+  .forEach(t => t.kill());
+ScrollTrigger.refresh();

@@ -166,9 +166,27 @@ img{
 }
 
 .shortline__right, .longline__left, .line__full{
-    height: 10px;
-    background-color: #620000;
+  height: 10px;
+  background: #620000;
+  border-radius: 8px;
 }
+
+.shortline__right,
+.longline__left{
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+.longline__left  { transform-origin: left  center; }
+.shortline__right{ transform-origin: right center; }
+
+.line__full{
+  transform: none;
+  will-change: auto;
+}
+
+.longline__left  { transform-origin: left  center; }
+.shortline__right{ transform-origin: right center; }
 
 .longline__left{
     border-radius: 0px 999px 999px 0;
