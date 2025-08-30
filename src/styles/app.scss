@@ -446,6 +446,10 @@ img{
         position: fixed;
     }
 
+    p{
+        line-height: 140%;
+    }
+
     .p--nav{
         margin-left: 80px;
     }
@@ -548,5 +552,23 @@ img{
         column-gap: 60px;
         padding-left: 120px;
         padding-right: 120px;
+    }
+}
+
+@media (min-width: 1440px){
+    p{
+        line-height: 170%;
+    }
+    .title--col1{
+        grid-column: 2/-1;
+    }
+    .p--col1col4 {
+        grid-column: 2/5;
+    }
+    .p--col4colf{
+        grid-column: 4/-2;
+    }
+    .p--col2col5{
+        grid-column: 2/5;
     }
 }
